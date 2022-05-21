@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 
 public class AlphabetAnalyzer implements Analyzer {
 
-    private final Pattern regex = Pattern.compile("[A-Z0-9]+");
+    private final Pattern regex = Pattern.compile("[a-zA-Z0-9ç]*");
 
     @Override
     public List<String> analyze(List<String> words) {
@@ -25,13 +25,11 @@ public class AlphabetAnalyzer implements Analyzer {
     private List<String> validAlphabet(List<String> words) {
         List<String> invalidWords = new ArrayList<>();
         words.forEach(word -> {
-            if(!regex.matcher(word).matches()) {
+            if(!word.matches(regex.pattern())) {
                 invalidWords.add(word);
             }
         });
 
         return invalidWords;
     }
-
-
 }
