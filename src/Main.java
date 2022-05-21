@@ -20,18 +20,17 @@ public class Main {
             LexicalAnalyzer analyzer = new LexicalAnalyzer(message.toString());
             analyzer.analyze();
             System.out.println(analyzer.printTokens());
-        } catch (FileNotFoundException | AnalyzerException e) {
-            String aux = format("Exceção: %s", e.getMessage());
-            printException(aux, -1, -1);
+        } catch (FileNotFoundException e) {
+            String msg = format("Exceção: %s", e.getMessage());
+            printException(msg);
+        } catch (AnalyzerException e) {
+            String msg = format(e.getMessage(), e.getWords());
+            printException(msg);
         }
     }
 
-    public static void printException(String msg, int row, int pos) {
-        if (pos > 0 && row > 0) {
-            System.out.printf("%s na linha %d, posição %d\n", msg, row, pos);
-        } else {
-            System.out.println(msg);
-        }
+    public static void printException(String msg) {
+        System.out.println(msg);
         System.exit(1);
     }
 }
