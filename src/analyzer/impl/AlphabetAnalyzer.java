@@ -1,9 +1,10 @@
-package analyzer;
+package analyzer.impl;
 
-import java.util.ArrayList;
+import analyzer.Analyzer;
+
 import java.util.List;
 
-public class StopwordsAnalyzer implements Analyzer {
+public class AlphabetAnalyzer implements Analyzer {
 
     @Override
     public List<String> analyze(List<String> source) {

@@ -1,5 +1,9 @@
 package analyzer;
 
+import analyzer.impl.AlphabetAnalyzer;
+import analyzer.impl.LexemeAnalyzer;
+import analyzer.impl.StopwordsAnalyzer;
+
 import java.util.ArrayList;
 import java.util.List;
 
