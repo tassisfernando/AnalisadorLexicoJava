@@ -12,12 +12,12 @@ public class Main {
         try {
             File f = new File("input.txt");
             Scanner s = new Scanner(f);
-            StringBuilder source = new StringBuilder(" ");
+            StringBuilder message = new StringBuilder(" ");
             while (s.hasNext()) {
-                source.append(s.nextLine()).append("\n");
+                message.append(s.nextLine()).append("\n");
             }
 
-            LexicalAnalyzer analyzer = new LexicalAnalyzer(source.toString());
+            LexicalAnalyzer analyzer = new LexicalAnalyzer(message.toString());
             analyzer.analyze();
             System.out.println(analyzer.printTokens());
         } catch (FileNotFoundException | AnalyzerException e) {
