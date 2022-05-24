@@ -1,5 +1,6 @@
 # Analisador Léxico de um chatbot 
-## Disciplina: Compiladores         Curso: Engenharia de computação
+## Disciplina: Compiladores - Engenharia de computação
+Aluno: Tássis Fernando Soares Fernandes
 
 Cenário: um chatbot de um empresa de venda de aparelhos eletrônicos (computadores, notebooks, mouses, teclados, etc)
 
