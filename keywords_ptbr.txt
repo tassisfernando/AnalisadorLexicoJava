@@ -26,6 +26,7 @@ mae
 som
 placa de vídeo
 placa mãe
+placa-mãe
 placa de som
 webcam
 carregador

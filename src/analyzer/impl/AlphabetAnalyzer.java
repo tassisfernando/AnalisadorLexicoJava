@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 
 public class AlphabetAnalyzer implements Analyzer {
 
-    private final Pattern regex = Pattern.compile("[a-zA-Z0-9ç]*");
+    private final Pattern regex = Pattern.compile("[a-zA-Zá-ú-Á-Ú0-9_@.\\/#?!&+-ç]*");
 
     @Override
     public List<String> analyze(List<String> words) {

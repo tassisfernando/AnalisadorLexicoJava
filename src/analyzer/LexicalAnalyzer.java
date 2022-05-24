@@ -8,6 +8,7 @@ import utils.Utils;
 
 import java.io.FileNotFoundException;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import static java.util.Arrays.asList;
 
@@ -16,7 +17,8 @@ public class LexicalAnalyzer  {
     private final String userMessage;
     private List<String> tokensList, symbolList;
     private final List<Analyzer> analyzers;
-    private KeywordsAnalyzer keywordsAnalyzer;
+    private final KeywordsAnalyzer keywordsAnalyzer;
+    private final Pattern regexSpliter = Pattern.compile("\\s");;
 
     public LexicalAnalyzer(String userMessage) throws FileNotFoundException {
         this.userMessage = userMessage;
@@ -29,7 +31,7 @@ public class LexicalAnalyzer  {
     }
 
     public void analyze() {
-        this.tokensList = Utils.getStringList(this.userMessage, " ");
+        this.tokensList = Utils.getStringList(this.userMessage, regexSpliter.pattern());
         analyzers.forEach(analyzer -> this.tokensList = analyzer.analyze(tokensList));
         symbolList = keywordsAnalyzer.analyze(tokensList);
     }
