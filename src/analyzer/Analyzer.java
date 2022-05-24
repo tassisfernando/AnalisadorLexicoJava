@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface Analyzer {
 
-    List<String> analyze(List<String> source);
+    List<String> analyze(List<String> words);
 }

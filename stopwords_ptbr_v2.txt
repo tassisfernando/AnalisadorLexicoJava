@@ -1,13 +1,3 @@
-0
-1
-2
-3
-4
-5
-6
-7
-8
-9
 a
 à
 a maioria
@@ -188,14 +178,6 @@ deveriam
 devia
 deviam
 devo
-dez
-dezanove
-dezasseis
-dezassete
-dezenove
-dezesseis
-dezessete
-dezoito
 dia
 diante
 diferente
@@ -651,13 +633,7 @@ precisando
 precisar
 presente
 presentes
-primeira
-primeiras
-primeiro
-primeiros
 pro
-problema
-problemas
 procurado
 promeiro
 promove
@@ -688,8 +664,6 @@ quarta
 quarto
 quartos
 quase
-quatorze
-quatro
 que
 quê
 quer
@@ -716,8 +690,6 @@ sao
 são
 se
 se separaram
-segunda
-segundo
 segundos
 sei
 seis
@@ -739,9 +711,6 @@ seria
 seriam
 seríamos
 serra
-sete
-sétima
-sétimo
 seu
 seus
 sexta
@@ -797,8 +766,6 @@ tentei
 ter
 terá
 terão
-terceira
-terceiro
 terei
 teremos
 teria
