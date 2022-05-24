@@ -1,6 +1,5 @@
 notebook
 computador
-comput
 celular
 tablet
 pc
@@ -62,14 +61,6 @@ compartilhar
 integrar
 instalar
 desinstalar
-posso
-qual
-como
-onde
-aonde
-quando
-quem
-é possível
 quanto
 comprar
 reembolsar

@@ -19,6 +19,7 @@ public class Main {
 
             LexicalAnalyzer analyzer = new LexicalAnalyzer(message.toString());
             analyzer.analyze();
+            System.out.println("Mensagem inicial: " + message);
             System.out.println("Lista de tokens: " + analyzer.printTokens());
             System.out.println("Tabela de símbolos inicial: " + analyzer.printSymbolList());
         } catch (FileNotFoundException e) {
