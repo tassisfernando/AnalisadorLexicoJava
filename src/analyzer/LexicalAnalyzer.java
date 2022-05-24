@@ -1,6 +1,12 @@
 package analyzer;
 
-import java.util.ArrayList;
+import analyzer.impl.AlphabetAnalyzer;
+import analyzer.impl.KeywordsAnalyzer;
+import analyzer.impl.LexemeAnalyzer;
+import analyzer.impl.StopWordsAnalyzer;
+import utils.Utils;
+
+import java.io.FileNotFoundException;
 import java.util.List;
 
 import static java.util.Arrays.asList;
@@ -8,34 +14,31 @@ import static java.util.Arrays.asList;
 public class LexicalAnalyzer  {
 
     private final String userMessage;
-    private List<String> userMessageList;
+    private List<String> tokensList, symbolList;
     private final List<Analyzer> analyzers;
+    private KeywordsAnalyzer keywordsAnalyzer;
 
-    public LexicalAnalyzer(String userMessage) {
+    public LexicalAnalyzer(String userMessage) throws FileNotFoundException {
         this.userMessage = userMessage;
         this.analyzers = asList(
                 new AlphabetAnalyzer(),
-                new StopwordsAnalyzer(),
+                new StopWordsAnalyzer(),
                 new LexemeAnalyzer()
         );
+        this.keywordsAnalyzer = new KeywordsAnalyzer();
     }
 
     public void analyze() {
-        this.userMessageList = getStringList(this.userMessage);
-        analyzers.forEach(analyzer -> this.userMessageList = analyzer.analyze(userMessageList));
-    }
-
-    private List<String> getStringList(String text) {
-        String[] strArray = text.split(" ");
-        List<String> list = asList(strArray);
-        List<String> returnList = new ArrayList<>(list);
-
-        returnList.removeIf(String::isEmpty);
-
-        return returnList;
+        this.tokensList = Utils.getStringList(this.userMessage, " ");
+        analyzers.forEach(analyzer -> this.tokensList = analyzer.analyze(tokensList));
+        symbolList = keywordsAnalyzer.analyze(tokensList);
     }
 
     public String printTokens() {
-        return userMessageList.toString();
+        return tokensList != null ? tokensList.toString() : "";
+    }
+
+    public String printSymbolList() {
+        return symbolList != null ? symbolList.toString() : "";
     }
 }
