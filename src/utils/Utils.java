@@ -25,6 +25,10 @@ public class Utils {
         return word
                 .trim()
                 .toLowerCase()
+                .replace("?", "")
+                .replace("!", "")
+                .replace(",", "")
+                .replace(".", "")
                 .replace("\n", "");
     }
 
