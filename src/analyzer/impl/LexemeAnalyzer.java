@@ -1,31 +1,18 @@
 package analyzer.impl;
 
 import analyzer.Analyzer;
-import utils.Utils;
+import org.tartarus.snowball.SnowballStemmer;
+import org.tartarus.snowball.ext.portugueseStemmer;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class LexemeAnalyzer implements Analyzer {
 
-    private Map<String, String> vocabulary;
+    private final SnowballStemmer stemmer;
 
-    public LexemeAnalyzer() throws FileNotFoundException {
-        init();
-    }
-
-    private void init() throws FileNotFoundException {
-        File f = new File("vocabulary_ptbr.txt");
-        Scanner s = new Scanner(f);
-        StringBuilder stopWordsString = new StringBuilder(" ");
-        while (s.hasNext()) {
-            stopWordsString.append(s.nextLine().toUpperCase()).append("\n");
-        }
-        this.vocabulary = Utils.getStringMap(stopWordsString.toString(), "\n");
+    public LexemeAnalyzer() {
+        stemmer = new portugueseStemmer();
     }
 
     @Override
@@ -34,7 +21,7 @@ public class LexemeAnalyzer implements Analyzer {
     }
 
     private String validLexeme(String word) {
-        String parsedWord = word;
-        return parsedWord;
+        stemmer.setCurrent(word);
+        return stemmer.stem() ? stemmer.getCurrent() : word;
     }
 }

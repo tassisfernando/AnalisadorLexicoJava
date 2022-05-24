@@ -21,18 +21,18 @@ public class Utils {
                 .collect(Collectors.toList());
     }
 
+    private static String validWord(String word) {
+        return word
+                .trim()
+                .toLowerCase()
+                .replace("\n", "");
+    }
+
     public static Map<String, String> getStringMap(String text, String regex) {
         List<String> returnList = getStringList(text, regex);
         Map<String, String> wordsMap = new HashMap<>();
         returnList.forEach(word -> wordsMap.put(word, word));
 
         return wordsMap;
-    }
-
-    private static String validWord(String word) {
-        return word
-                .trim()
-                .toUpperCase()
-                .replace("\n", "");
     }
 }

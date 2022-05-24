@@ -22,7 +22,7 @@ public class StopWordsAnalyzer implements Analyzer {
         Scanner s = new Scanner(f);
         StringBuilder stopWordsString = new StringBuilder(" ");
         while (s.hasNext()) {
-            stopWordsString.append(s.nextLine().toUpperCase()).append("\n");
+            stopWordsString.append(s.nextLine().toLowerCase()).append("\n");
         }
         this.stopWords = Utils.getStringList(stopWordsString.toString(), "\n");
     }
@@ -31,7 +31,7 @@ public class StopWordsAnalyzer implements Analyzer {
     public List<String> analyze(List<String> words) {
         List<String> toRemoveList = new ArrayList<>();
         words.forEach(word -> {
-            if(this.stopWords.contains(word.toUpperCase())) {
+            if(this.stopWords.contains(word)) {
                 toRemoveList.add(word);
             }
         });
